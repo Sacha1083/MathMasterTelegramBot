@@ -55,13 +55,13 @@ public class Chat {
                 userState.setExpectedResponse("dimension");
                 askForDimensions(update, text);
             } else {
-                sendMessage(update, "⚠️ Figura no reconocida. Por favor, elige una figura válida.");
+                sendMessage(update, "⚠️ Figura no reconocida. Por favor, elige una figura válida. ⚠️");
             }
         } else if ("dimension".equals(userState.getExpectedResponse())) {
             calculateFigure(update, userState.getCurrentFigure(), text);
             userState.setExpectedResponse("");
         } else {
-            sendMessage(update, "Lo siento, no entiendo lo que me pides. ¿Podrías repetirlo?");
+            sendMessage(update, "⚠️ Lo siento, no entiendo lo que me pides. ¿Podrías repetirlo? ⚠️");
         }
     }
 
@@ -76,7 +76,7 @@ public class Chat {
             case "círculo" -> "Introduce el radio del círculo:";
             case "trapecio" -> "Introduce la base mayor, la base menor y la altura del trapecio (separados por un espacio):";
             case "paralelogramo" -> "Introduce la base y la altura del paralelogramo (separados por un espacio):";
-            default -> "⚠️ Figura no reconocida.";
+            default -> "⚠️ Figura no reconocida. ⚠️";
         };
         sendMessage(update, prompt);
     }
