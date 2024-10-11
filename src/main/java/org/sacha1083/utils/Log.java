@@ -41,4 +41,8 @@ public class Log {
     public static void error(String message) {
         log("ERROR", "❗ " + message + " ❗");
     }
+
+    public static void config(String message) {
+        log("CONFIG", "⚙️ " + message + " ⚙️");
+    }
 }

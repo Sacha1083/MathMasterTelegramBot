@@ -35,7 +35,7 @@
         </dependency>
     </dependencies>
 
-    <!-- Incluir resources en el .jar -->
+    <!-- Include resources in .jar -->
     <build>
         <resources>
             <resource>

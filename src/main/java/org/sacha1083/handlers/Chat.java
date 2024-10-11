@@ -2,6 +2,7 @@ package org.sacha1083.handlers;
 
 import org.sacha1083.bot.TelegramBot;
 import org.sacha1083.shapes.*;
+import org.sacha1083.utils.Log;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
@@ -165,7 +166,7 @@ public class Chat {
         try {
             bot.execute(message);
         } catch (TelegramApiException e) {
-            e.printStackTrace();
+            Log.error("Error al enviar el mensaje: " + e.getMessage());
         }
     }
 
@@ -176,9 +177,9 @@ public class Chat {
         message.setReplyMarkup(createMainKeyboard());
         try {
             bot.execute(message);
-            System.out.println("ℹ️ Mensaje de bienvenida enviado ℹ️");
+            Log.info("Mensaje de bienvenida enviado");
         } catch (TelegramApiException e) {
-            System.out.println("❗ Error al enviar el mensaje de bienvenida: " + e.getMessage() + " ❗");
+            Log.error("Error al enviar el mensaje de bienvenida: " + e.getMessage());
         }
     }
 
@@ -191,7 +192,7 @@ public class Chat {
         try {
             bot.execute(message);
         } catch (TelegramApiException e) {
-            e.printStackTrace();
+            Log.error("Error al enviar las opciones de figuras: " + e.getMessage());
         }
     }
 
@@ -202,7 +203,7 @@ public class Chat {
         try {
             bot.execute(message);
         } catch (TelegramApiException e) {
-            System.out.println("❗ Error al enviar el mensaje de información: " + e.getMessage() + " ❗");
+            Log.error("Error al enviar la información: " + e.getMessage());
         }
     }
 
@@ -213,7 +214,7 @@ public class Chat {
         try {
             bot.execute(message);
         } catch (TelegramApiException e) {
-            e.printStackTrace();
+            Log.error("Error al enviar la ayuda: " + e.getMessage());
         }
     }
 
@@ -225,10 +226,10 @@ public class Chat {
         try {
             bot.execute(message);
         } catch (TelegramApiException e) {
-            e.printStackTrace();
+            Log.error("Error al enviar el mensaje de salida: " + e.getMessage());
         }
 
-        // Reiniciar el estado del usuario
+        // Reset user state
         userState.setExpectedResponse("");
         userState.setCurrentFigure("");
     }

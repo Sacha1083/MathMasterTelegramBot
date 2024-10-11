@@ -1,6 +1,7 @@
 package org.sacha1083.bot;
 
 import org.sacha1083.handlers.Chat;
+import org.sacha1083.utils.Log;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.sacha1083.utils.UserState;
@@ -16,7 +17,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     public TelegramBot(String botUsername, String botToken) {
         this.botUsername = botUsername;
         this.botToken = botToken;
-        System.out.println("ℹ️ Bot creado con nombre de usuario: " + botUsername + " ℹ️");
+        Log.info("Bot creado con nombre de usuario: " + botUsername);
         onWait();
     }
 
@@ -37,11 +38,11 @@ public class TelegramBot extends TelegramLongPollingBot {
         Chat chat = new Chat(this, userState);
         chat.handleUpdate(update);
         userStates.put(chatId, userState);
-        System.out.println("✅ Mensaje procesado ✅");
+        Log.success("Mensaje recibido de " + chatId);
         onWait();
     }
 
     public void onWait() {
-        System.out.println("\uD83D\uDD0D A la espera de mensajes... \uD83D\uDD0D");
+        Log.info("\uD83D\uDD0D Esperando mensajes... \uD83D\uDD0D");
     }
 }
