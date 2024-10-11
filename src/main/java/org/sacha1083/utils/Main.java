@@ -18,19 +18,19 @@ public class Main {
         String botToken = System.getProperty("BOT_TOKEN");
 
         try {
-            System.out.println("⚙️ Iniciando bot... ⚙️");
+            Log.config("Iniciando bot...");
             TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
             botsApi.registerBot(new TelegramBot(botUsername, botToken));
-            System.out.println("✅\uD83D\uDEDC El bot ha establecido conexión correctamente \uD83D\uDEDC✅.");
+            Log.success("Bot iniciado correctamente");
         } catch (TelegramApiException e) {
-            System.out.println("❗ Error al iniciar el bot: " + e.getMessage() + " ❗");
+            Log.error("Error al iniciar el bot: " + e.getMessage());
         }
     }
 
     private static void loadEnvVariables() {
         try (InputStream input = Main.class.getClassLoader().getResourceAsStream(".env")) {
             if (input == null) {
-                System.out.println("❗ Error: No se encontró el archivo .env ❗");
+                Log.warn("Archivo .env no encontrado");
                 return;
             }
 
@@ -41,9 +41,9 @@ public class Main {
                     System.setProperty(parts[0], parts[1]);
                 }
             }
-            System.out.println("✅ Variables de entorno cargadas correctamente ✅");
+            Log.success("Variables de entorno cargadas correctamente");
         } catch (IOException e) {
-            System.out.println("❗ Error al leer el archivo .env: " + e.getMessage() + " ❗");
+            Log.error("Error al cargar las variables de entorno: " + e.getMessage());
         }
     }
 }
