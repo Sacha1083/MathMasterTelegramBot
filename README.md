@@ -1,58 +1,73 @@
-MathMasterTelegramBot
+# MathMasterTelegramBot
 
-MathMasterTelegramBot es un bot de Telegram que facilita el cálculo de áreas y perímetros de diversas figuras geométricas. El usuario puede seleccionar una figura y obtener resultados automáticos o recibir una explicación paso a paso sobre cómo realizar los cálculos manualmente. Ideal para estudiantes, profesores y aficionados a la geometría.
-Características
+**MathMasterTelegramBot** is a Telegram bot that facilitates the calculation of areas and perimeters of various geometric figures. Users can select a figure and get automatic results or receive a step-by-step explanation on how to perform the calculations manually. Ideal for students, teachers, and geometry enthusiasts.
 
-    Cálculo Automático: Obtén rápidamente el área y perímetro de figuras geométricas.
-    Explicaciones Paso a Paso: Aprende cómo realizar cálculos manualmente con guías detalladas.
-    Interfaz Amigable: Interactúa fácilmente con el bot a través de comandos simples de Telegram.
+## Features
 
-Figuras Soportadas
+- **Automatic Calculation**: Quickly get the area and perimeter of geometric figures.
+- **Step-by-Step Explanations**: Learn how to perform manual calculations with detailed guides.
+- **User-Friendly Interface**: Easily interact with the bot through simple Telegram commands.
 
-    Círculo
-    Cuadrado
-    Rectángulo
-    Triángulo
-    Más figuras próximamente...
+## Supported Figures
 
-Instalación
+- Circle
+- Square
+- Rectangle
+- Triangle
+- More figures coming soon...
 
-Sigue estos pasos para configurar y ejecutar el bot en tu entorno local:
+## Installation
 
-    Clona el repositorio:
+Follow these steps to set up and run the bot in your local environment:
 
+1. **Clone the repository**:
+
+    ```sh
     git clone https://github.com/Sacha1083/MathMasterTelegramBot.git
+    ```
 
-Navega al directorio del proyecto:
+2. **Navigate to the project directory**:
 
-cd MathMasterTelegramBot
+    ```sh
+    cd MathMasterTelegramBot
+    ```
 
-Compila el proyecto (asegúrate de tener configurado un entorno de Java):
+3. **Compile the project using Maven**:
 
-javac -d bin src/*.java
+    ```sh
+    mvn clean package
+    ```
 
-Ejecuta el bot:
+4. **Run the bot**:
 
-java -cp bin Main
+    - **Using the JAR file**:
 
-Uso
+        ```sh
+        java -jar out/artifacts/MathMasterTelegramBot_jar/MathMasterTelegramBot.jar
+        ```
 
-Una vez que el bot esté en funcionamiento, puedes interactuar con él a través de Telegram:
+    - **Using IntelliJ IDEA**:
 
-    /start - Inicia la conversación con el bot.
-    /help - Muestra una lista de comandos disponibles.
-    /calculate - Inicia el proceso de cálculo para una figura geométrica.
+        Open the project in IntelliJ IDEA and run the `Main` class.
 
-Contribuciones
+## Usage
 
-¡Las contribuciones son bienvenidas! Si deseas contribuir, sigue estos pasos:
+Once the bot is running, you can interact with it through Telegram:
 
-    Haz un fork del proyecto.
-    Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
-    Realiza tus cambios y haz commit (git commit -m 'Añadir nueva funcionalidad').
-    Sube tus cambios al repositorio (git push origin feature/nueva-funcionalidad).
-    Abre un Pull Request.
+- **/start** - Start the conversation with the bot.
+- **/info** - Show video tutorials on how to calculate area and perimeter.
+- **/operaciones** - Show a list of available operations.
 
-Licencia
+## Contributions
 
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para obtener más detalles.
+**Contributions are welcome!** If you want to contribute, follow these steps:
+
+1. Fork the project.
+2. Create a new branch (`git checkout -b feature/new-feature`).
+3. Make your changes and commit them (`git commit -m 'Add new feature'`).
+4. Push your changes to the repository (`git push origin feature/new-feature`).
+5. Open a Pull Request.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
