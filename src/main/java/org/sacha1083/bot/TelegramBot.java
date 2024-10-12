@@ -38,7 +38,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         Chat chat = new Chat(this, userState);
         chat.handleUpdate(update);
         userStates.put(chatId, userState);
-        Log.success("Mensaje recibido de " + chatId);
+        Log.saveUserMessage(update);
         onWait();
     }
 

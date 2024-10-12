@@ -24,28 +24,19 @@ public class Chat {
         this.userState = userState;
     }
 
+    // Handle user input
     public void handleUpdate(Update update) {
         String text = update.getMessage().getText().toLowerCase();
         switch (text) {
-            case "/start":
-                sendWelcomeMessage(update);
-                break;
-            case "/operaciones":
+            case "/start" -> sendWelcomeMessage(update);
+            case "/operaciones" -> {
                 sendFigureOptions(update);
                 userState.setExpectedResponse("figure");
-                break;
-            case "/info":
-                sendInfo(update);
-                break;
-            case "/help":
-                sendHelp(update);
-                break;
-            case "/salir":
-                sendExitMessage(update);
-                break;
-            default:
-                handleUserResponse(update, text);
-                break;
+            }
+            case "/info" -> sendInfo(update);
+            case "/help" -> sendHelp(update);
+            case "/salir" -> sendExitMessage(update);
+            default -> handleUserResponse(update, text);
         }
     }
 
@@ -153,7 +144,7 @@ public class Chat {
                 default -> sendMessage(update, "⚠️ Figura no reconocida.");
             }
             sendMessage(update, "✅ Área: " + area + ", Perímetro: " + perimetro);
-            sendWelcomeMessage(update); // Volver a mostrar las primeras opciones
+            sendWelcomeMessage(update); // Return to main menu
         } catch (NumberFormatException e) {
             sendMessage(update, "⚠️ Error en el formato de las dimensiones. Por favor, inténtalo de nuevo.");
         }
@@ -218,6 +209,7 @@ public class Chat {
         }
     }
 
+    // Send exit message and reset user state
     private void sendExitMessage(Update update) {
         SendMessage message = new SendMessage();
         message.setChatId(update.getMessage().getChatId().toString());
@@ -234,6 +226,7 @@ public class Chat {
         userState.setCurrentFigure("");
     }
 
+    // Keyboard with the main options
     private ReplyKeyboardMarkup createMainKeyboard() {
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
         List<KeyboardRow> keyboard = new ArrayList<>();
@@ -249,6 +242,7 @@ public class Chat {
         return keyboardMarkup;
     }
 
+    // Keyboard with the available figures
     private ReplyKeyboardMarkup createFigureKeyboard() {
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
         keyboardMarkup.setResizeKeyboard(true);
@@ -278,6 +272,7 @@ public class Chat {
         return keyboardMarkup;
     }
 
+    // Keyboard with only the /start button
     private ReplyKeyboardMarkup onlyStartButton() {
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
         List<KeyboardRow> keyboard = new ArrayList<>();
