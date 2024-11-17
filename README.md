@@ -32,13 +32,20 @@ Follow these steps to set up and run the bot in your local environment:
     cd MathMasterTelegramBot
     ```
 
-3. **Compile the project using Maven**:
+3. **Add a `.env` file with the following properties**:
+
+    ```plaintext
+    BOT_USERNAME=your_bot_username
+    BOT_TOKEN=your_bot_token
+    ```
+
+4. **Compile the project using Maven**:
 
     ```sh
     mvn clean package
     ```
 
-4. **Run the bot**:
+5. **Run the bot**:
 
     - **Using the JAR file**:
 
