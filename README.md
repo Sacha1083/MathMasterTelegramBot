@@ -47,10 +47,10 @@ Follow these steps to set up and run the bot in your local environment:
 
 5. **Run the bot**:
 
-    - **Using the JAR file**:
+    - **Use of the JAR file after exporting**:
 
         ```sh
-        java -jar out/artifacts/MathMasterTelegramBot_jar/MathMasterTelegramBot.jar
+        java -jar MathMasterTelegramBot.jar
         ```
 
     - **Using IntelliJ IDEA**:
